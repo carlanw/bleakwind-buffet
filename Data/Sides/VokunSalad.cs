@@ -8,11 +8,11 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BleakwindBuffet.Data.Enums;
 
-namespace Data.Sides
+
+namespace BleakwindBuffet.Data.Sides
 {
-    class VokunSalad
+    public class VokunSalad
     {
         /// <summary>
         /// Size of the item

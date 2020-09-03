@@ -8,9 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         /// <summary>
         /// The item's price

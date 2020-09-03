@@ -8,9 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
-    class ThugsTBone
+    public class ThugsTBone
     {
         /// <summary>
         /// The item's price
@@ -36,7 +36,7 @@ namespace Data.Entrees
 
         public override string ToString()
         {
-            return "Thug's T-Bone"
+            return "Thug's T-Bone";
         }
     }
 }
