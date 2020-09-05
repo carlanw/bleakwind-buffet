@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent a Briarheart Burger
+    /// </summary>
     public class BriarheartBurger
     {
         /// <summary>

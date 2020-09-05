@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class to represent a Thalmor Triple
+    /// </summary>
     public class ThalmorTriple
     {
         /// <summary>

@@ -13,6 +13,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Calss to represent a soda
+    /// </summary>
     public class SailorSoda
     {
         /// <summary>

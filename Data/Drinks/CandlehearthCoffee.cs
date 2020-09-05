@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class to represent coffee
+    /// </summary>
     public class CandlehearthCoffee
     {
         /// <summary>

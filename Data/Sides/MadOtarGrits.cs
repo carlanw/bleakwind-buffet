@@ -11,6 +11,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Class to represent Mad Otar Grits
+    /// </summary>
     public class MadOtarGrits
     {
         /// <summary>
@@ -57,6 +60,17 @@ namespace BleakwindBuffet.Data.Sides
                     default:
                         return 0;
                 }
+            }
+        }
+
+        /// <summary>
+        /// List of instructions for item's preparation
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
             }
         }
 
