@@ -12,7 +12,21 @@ using System.Runtime.InteropServices;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
-    {        
+    {
+        [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            SmokehouseSkeleton combo = new SmokehouseSkeleton();
+            Assert.True(combo is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            SmokehouseSkeleton combo = new SmokehouseSkeleton();
+            Assert.True(combo is Entree);
+        }
+
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {

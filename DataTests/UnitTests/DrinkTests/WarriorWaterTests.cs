@@ -15,6 +15,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.True(water is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.True(water is Smoke);
+        }
+
+        [Fact]
         public void ShouldIncludeIceByDefault()
         {
             WarriorWater water = new WarriorWater();

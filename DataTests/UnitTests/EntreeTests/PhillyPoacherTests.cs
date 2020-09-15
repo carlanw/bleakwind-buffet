@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            PhillyPoacher sandwich = new PhillyPoacher();
+            Assert.True(sandwich is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            PhillyPoacher sandwich = new PhillyPoacher();
+            Assert.True(sandwich is Entree);
+        }
+
+        [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
             PhillyPoacher sandwich = new PhillyPoacher();
@@ -86,7 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeSirloin)
                 Assert.Contains("Hold sirloin", sandwich.SpecialInstructions);
             if (!includeOnion)
-                Assert.Contains("Hold onion", sandwich.SpecialInstructions);
+                Assert.Contains("Hold onions", sandwich.SpecialInstructions);
             if (!includeRoll)
                 Assert.Contains("Hold roll", sandwich.SpecialInstructions);
             if (includeRoll && includeOnion && includeSirloin)

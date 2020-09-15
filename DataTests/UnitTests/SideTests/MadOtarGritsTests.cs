@@ -14,6 +14,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            Assert.True(side is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeASide()
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            Assert.True(side is Side);
+        }
+
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             MadOtarGrits side = new MadOtarGrits();

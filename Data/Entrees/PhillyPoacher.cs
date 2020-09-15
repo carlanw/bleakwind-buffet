@@ -13,28 +13,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent a Philly Poacher
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         /// <summary>
         /// The item's price
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <summary>
         /// The item's calorie count
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <summary>
         /// Special instructions for the making of this item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();
                 if (!this.Sirloin) instructions.Add("Hold sirloin");
-                if (!this.Onion) instructions.Add("Hold onion");
+                if (!this.Onion) instructions.Add("Hold onions");
                 if (!this.Roll) instructions.Add("Hold roll");
                 return instructions;
             }

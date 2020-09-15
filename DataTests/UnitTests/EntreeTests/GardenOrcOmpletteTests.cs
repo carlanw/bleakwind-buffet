@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.True(omelette is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.True(omelette is Entree);
+        }
+
+        [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
@@ -106,7 +120,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeTomato)
                 Assert.Contains("Hold tomato", omelette.SpecialInstructions);
             if (!includeCheddar)
-                Assert.Contains("Hold Cheddar", omelette.SpecialInstructions);
+                Assert.Contains("Hold cheddar", omelette.SpecialInstructions);
         }
 
         [Fact]

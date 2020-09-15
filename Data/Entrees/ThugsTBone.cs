@@ -13,22 +13,22 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class to represent Thug's T-Bone
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <summary>
         /// The item's price
         /// </summary>
-        public double Price => 6.44; // I wish
+        public override double Price => 6.44; // I wish
 
         /// <summary>
         /// The item's calorie count
         /// </summary>
-        public uint Calories => 982;
+        public override uint Calories => 982;
 
         /// <summary>
         /// Special instructions for the making of this item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
 
         public override string ToString()
         {
-            return "Thug's T-Bone";
+            return "Thugs T-Bone";
         }
     }
 }

@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.True(burger is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.True(burger is Entree);
+        }
+
+        [Fact]
         public void ShouldIncludeBunByDefault()
         {
             DoubleDraugr burger = new DoubleDraugr();

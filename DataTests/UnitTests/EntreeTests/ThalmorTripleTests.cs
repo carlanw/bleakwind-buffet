@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThalmorTripleTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.True(burger is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.True(burger is Entree);
+        }
+
+        [Fact]
         public void ShouldIncludeBunByDefault()
         {
             ThalmorTriple burger = new ThalmorTriple();

@@ -13,6 +13,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldBeAnOrderItem()
+        {
+            ThugsTBone steak = new ThugsTBone();
+            Assert.True(steak is IOrderItem);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThugsTBone steak = new ThugsTBone();
+            Assert.True(steak is Entree);
+        }
+
+        [Fact]
         public void ShouldReturnCorrectPrice()
         {
             ThugsTBone steak = new ThugsTBone();
@@ -37,7 +51,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             ThugsTBone steak = new ThugsTBone();
-            Assert.Equal("Thug's T-Bone", steak.ToString());
+            Assert.Equal("Thugs T-Bone", steak.ToString());
         }
     }
 }
