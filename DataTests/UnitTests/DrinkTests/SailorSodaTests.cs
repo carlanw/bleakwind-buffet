@@ -10,11 +10,19 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class SailorSodaTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            SailorSoda soda = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(soda);
+            Assert.PropertyChanged(soda, "Ice", () => soda.Ice = false);
+        }
         [Fact]
         public void ShouldBeAnOrderItem()
         {
@@ -26,7 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeADrink()
         {
             SailorSoda soda = new SailorSoda();
-            Assert.True(soda is Smoke);
+            Assert.True(soda is Drink);
         }
 
         [Fact]

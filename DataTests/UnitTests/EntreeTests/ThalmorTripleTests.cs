@@ -7,11 +7,20 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class ThalmorTripleTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+            Assert.PropertyChanged(burger, "Bun", () => burger.Bun = false);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -7,8 +8,13 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Base class for entrees
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for when a property is changed
+        /// </summary>
+        public abstract event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The entree's price
         /// </summary>

@@ -8,11 +8,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(side);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {

@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="PointOfSale.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <StackPanel Name="Panel" Margin="10">
+        <WrapPanel Name="Entrees" Margin="5">
+            <Button Name="BriarheartBurgerButton" MinHeight="30" MinWidth="100" Margin="2" Click="BriarheartBurgerButton_Click">
+                Briarheart Burger
+            </Button>
+            <Button Name="DoubleDraugrButton" MinHeight="30" MinWidth="100" Margin="2" Click="DoubleDraugrButton_Click">
+                Double Draugr
+            </Button>
+            <Button Name="GardenOrcOmeletteButton" MinHeight="30" MinWidth="100" Margin="2" Click="GardenOrcOmeletteButton_Click">
+                Garden Orc Omelette
+            </Button>
+            <Button Name="PhillyPoacherButton" MinHeight="30" MinWidth="100" Margin="2" Click="PhillyPoacherButton_Click">
+                Philly Poacher
+            </Button>
+            <Button Name="SmokehouseSkeletonButton" MinHeight="30" MinWidth="100" Margin="2" Click="SmokehouseSkeletonButton_Click">
+                Smokehouse Skeleton
+            </Button>
+            <Button Name="ThalmorTripleButton" MinHeight="30" MinWidth="100" Margin="2" Click="ThalmorTripleButton_Click">
+                Thalmor Triple
+            </Button>
+            <Button Name="ThugsTBoneButton" MinHeight="30" MinWidth="100" Margin="2" Click="ThugsTBoneButton_Click">
+                Thug's T-Bone
+            </Button>
+        </WrapPanel>
+        <WrapPanel Name="Sides" Margin="5">
+            <Button Name="DragonbornWaffleFriesButton" MinHeight="30" MinWidth="100" Margin="2" Click="DragonbornWaffleFriesButton_Click">
+                Dragonborn Waffle Fries
+            </Button>
+            <Button Name="FriedMiraakButton" MinHeight="30" MinWidth="100" Margin="2" Click="FriedMiraakButton_Click">
+                Fried Miraak
+            </Button>
+            <Button Name="MadOtarGritsButton" MinHeight="30" MinWidth="100" Margin="2" Click="MadOtarGritsButton_Click">
+                Mad Otar Grits
+            </Button>
+            <Button Name="VokunSaladButton" MinHeight="30" MinWidth="100" Margin="2" Click="VokunSaladButton_Click">
+                Vokun Salad
+            </Button>
+        </WrapPanel>
+        <WrapPanel Name="Drinks" Margin="5">
+            <Button Name="AretinoAppleJuiceButton" MinHeight="30" MinWidth="100" Margin="2" Click="AretinoAppleJuiceButton_Click">
+                Aretino Apple Juice
+            </Button>
+            <Button Name="CandlehearthCoffeeButton" MinHeight="30" MinWidth="100" Margin="2" Click="CandlehearthCoffeeButton_Click">
+                Candlehearth Coffee
+            </Button>
+            <Button Name="MarkarthMilkButton" MinHeight="30" MinWidth="100" Margin="2" Click="MarkarthMilkButton_Click">
+                Markarth Milk
+            </Button>
+            <Button Name="SailorSodaButton" MinHeight="30" MinWidth="100" Margin="2" Click="SailorSodaButton_Click">
+                Sailor Soda
+            </Button>
+            <Button Name="WarriorWaterButton" MinHeight="30" MinWidth="100" Margin="2" Click="WarriorWaterButton_Click">
+                Warrior Water
+            </Button>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

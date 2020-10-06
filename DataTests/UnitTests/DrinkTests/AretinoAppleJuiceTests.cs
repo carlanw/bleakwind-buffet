@@ -8,11 +8,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            AretinoAppleJuice juice = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(juice);
+            Assert.PropertyChanged(juice, "Ice", () => juice.Ice = true);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {
@@ -24,7 +33,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeADrink()
         {
             AretinoAppleJuice juice = new AretinoAppleJuice();
-            Assert.True(juice is Smoke);
+            Assert.True(juice is Drink);
         }
 
         [Fact]

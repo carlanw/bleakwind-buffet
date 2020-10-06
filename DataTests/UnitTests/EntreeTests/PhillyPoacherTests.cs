@@ -7,11 +7,20 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            PhillyPoacher sandwich = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(sandwich);
+            Assert.PropertyChanged(sandwich, "Roll", () => sandwich.Roll = false);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {

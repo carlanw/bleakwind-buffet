@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,8 +17,13 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Calss to represent a soda
     /// </summary>
-    public class SailorSoda : Smoke
+    public class SailorSoda : Drink
     {
+        /// <summary>
+        /// Event handler for when a property is changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of the drink
         /// </summary>
@@ -63,7 +69,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Whether the drink is to have ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        private bool ice = true;
 
         /// <summary>
         /// Special instructions for the making of this item
@@ -81,7 +96,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor 
+        {
+            get => flavor;
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
+        }
+        private SodaFlavor flavor = SodaFlavor.Cherry;
 
 
         /// <summary>

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -14,8 +15,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class to represent coffee
     /// </summary>
-    public class CandlehearthCoffee : Smoke
+    public class CandlehearthCoffee : Drink
     {
+        /// <summary>
+        /// Event handler for when a property is changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Price of the drink
@@ -62,17 +67,44 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Whether the drink is to have ice
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice 
+        {
+            get => ice;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
+        }
+        private bool ice = false;
 
         /// <summary>
         /// Whether the coffee is to have cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get => roomforcream;
+            set
+            {
+                roomforcream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+            }
+        }
+        private bool roomforcream = false;
 
         /// <summary>
         /// Whether the coffee is to be decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get => decaf;
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
+        }
+        private bool decaf = false;
 
         /// <summary>
         /// Special instructions for the making of this item

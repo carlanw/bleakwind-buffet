@@ -7,11 +7,20 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+            Assert.PropertyChanged(burger, "Bun", () => burger.Bun = false);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {

@@ -7,11 +7,20 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class ThugsTBoneTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            ThugsTBone steak = new ThugsTBone();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(steak);
+            // no properties to change
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {

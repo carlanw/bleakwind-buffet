@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -15,6 +16,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class PhillyPoacher : Entree
     {
+        /// <summary>
+        /// Event handler for when a property is changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The item's price
         /// </summary>
@@ -43,18 +49,48 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Whether the sandwich is to have sirloin
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin 
+        {
+            get => sirloin;
+            set
+            {
+                if(value != sirloin)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                sirloin = value;
+            }
+        }
+        private bool sirloin = true;
 
         /// <summary>
         /// Whether the sandwich is to have onion 
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion
+        {
+            get => onion;
+            set
+            {
+                if(onion != value)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                onion = value;
+            }
+        }
+        private bool onion = true;
 
         /// <summary>
         /// Whether the sandwich is to have a roll. 
         /// Really challenging the definition of a sandwich here.
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll
+        {
+            get => roll;
+            set
+            {
+                if(roll != value)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                roll = value;
+            }
+        }
+        private bool roll = true;
 
         /// <summary>
         /// Gives the name of the entree

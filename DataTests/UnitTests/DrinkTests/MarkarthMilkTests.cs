@@ -8,11 +8,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            MarkarthMilk milk = new MarkarthMilk();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(milk);
+            Assert.PropertyChanged(milk, "Ice", () => milk.Ice = true);
+        }
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {
@@ -24,7 +33,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeADrink()
         {
             MarkarthMilk milk = new MarkarthMilk();
-            Assert.True(milk is Smoke);
+            Assert.True(milk is Drink);
         }
 
         [Fact]

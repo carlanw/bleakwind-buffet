@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -15,6 +16,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree
     {
+        /// <summary>
+        /// Event handler for when a property is changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The item's price
         /// </summary>
@@ -46,27 +52,77 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Whether the burger is to have a bun
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun 
+        {
+            get => bun;
+            set
+            {
+                if(bun != value)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                bun = value;
+            }
+        }
+        private bool bun = true;
 
         /// <summary>
         /// Whether the burger is to have ketchup
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get => ketchup;
+            set
+            {
+                if(ketchup != value)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                ketchup = value;
+            }
+        }
+        private bool ketchup = true;
 
         /// <summary>
         /// Whether the burger is to have mustard
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard 
+        {
+            get => mustard;
+            set
+            {
+                if(value != mustard)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                mustard = value;
+            }
+        }
+        private bool mustard = true;
 
         /// <summary>
         /// Whether the burger is to have pickles
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get => pickle; 
+            set
+            {
+                if(value != pickle)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                pickle = value;
+            }
+        }
+        private bool pickle = true;
 
         /// <summary>
         /// Whether the burger is to have cheese
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get => cheese; 
+            set
+            {
+                if(cheese != value)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                cheese = value;
+            }
+        }
+        private bool cheese = true;
 
         /// <summary>
         /// Gives the name of the entree

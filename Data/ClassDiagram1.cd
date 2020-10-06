@@ -14,7 +14,7 @@
       <FileName>Drinks\CandlehearthCoffee.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BleakwindBuffet.Data.Drinks.Smoke">
+  <Class Name="BleakwindBuffet.Data.Drinks.Drink">
     <Position X="17.75" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAQAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>

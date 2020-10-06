@@ -8,11 +8,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+        [Fact]
+        public void ShouldNotifyWhenPropertyChanged()
+        {
+            SmokehouseSkeleton combo = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(combo);
+            Assert.PropertyChanged(combo, "Pancake", () => combo.Pancake = false);
+        } 
+
         [Fact]
         public void ShouldBeAnOrderItem()
         {
@@ -109,10 +118,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton combo = new SmokehouseSkeleton
             {
-                SausageLink = includeSausage,
                 Egg = includeEgg,
                 HashBrowns = includeHashbrowns,
-                Pancake = includePancake
+                Pancake = includePancake,
+                SausageLink = includeSausage,
             };
             if (!includeSausage)
                 Assert.Contains("Hold sausage", combo.SpecialInstructions);
