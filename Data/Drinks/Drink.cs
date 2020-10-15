@@ -14,21 +14,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Event handler for when a property is changed
         /// </summary>
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public abstract event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The drink's size
         /// </summary>
-        public virtual Size Size 
-        {
-            get => size;
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            }
-        }
-        private Size size = Size.Small;
+        public abstract Size Size { get; set; }
 
         /// <summary>
         /// The drink's price

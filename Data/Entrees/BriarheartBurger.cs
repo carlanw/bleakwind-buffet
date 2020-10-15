@@ -57,8 +57,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => bun;
             set
             {
-                if(bun != value)
+                if (bun != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 bun = value;
             }
         }
@@ -72,8 +75,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => ketchup;
             set
             {
-                if(ketchup != value)
+                if (ketchup != value)
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                }
                 ketchup = value;
             }
         }
@@ -87,8 +93,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => mustard;
             set
             {
-                if(value != mustard)
+                if (value != mustard)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 mustard = value;
             }
         }
@@ -102,8 +111,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => pickle; 
             set
             {
-                if(value != pickle)
+                if (value != pickle)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 pickle = value;
             }
         }
@@ -117,8 +129,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => cheese; 
             set
             {
-                if(cheese != value)
+                if (cheese != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 cheese = value;
             }
         }

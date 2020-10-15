@@ -24,6 +24,26 @@ namespace BleakwindBuffet.Data.Drinks
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// The drink's size
+        /// </summary>
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                if (value != size)
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                size = value;
+            }
+        }
+        private Size size = Size.Small;
+
+        /// <summary>
         /// Price of the drink
         /// </summary>
         public override double Price
@@ -55,6 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         private bool ice = true;
@@ -69,6 +90,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 lemon = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         } 
         private bool lemon = false;

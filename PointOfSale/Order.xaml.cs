@@ -22,20 +22,9 @@ namespace PointOfSale
     public partial class Order : UserControl
     {
         /// <summary>
-        /// Current order number
+        /// Object to represent the order items
         /// </summary>
-        private int ordernumber = 1;
-
-        /// <summary>
-        /// Price of all items prior to sales tax
-        /// </summary>
-        private double subtotal { get; set; } = 0;
-
-        /// <summary>
-        /// Sales tax rate as a percentage
-        /// Declared for ease of changing
-        /// </summary>
-        private double salestaxrate = 8.95;
+        public BleakwindBuffet.Data.Order OrderObj = new BleakwindBuffet.Data.Order();
 
         /// <summary>
         /// List of items in the order
@@ -55,12 +44,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void NextOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            ordernumber += 1;
-            items = new List<IOrderItem>();
-            prices = new List<double>();
-            subtotal = 0;
+            OrderObj = new BleakwindBuffet.Data.Order();
 
-            OrderNumber.Text = ordernumber.ToString();
+            OrderNumber.Text = OrderObj.Number.ToString();
 
             Items.Text = "";
             Prices.Text = "";
@@ -76,16 +62,14 @@ namespace PointOfSale
         /// <param name="item">Item to be added to order</param>
         public void AddItem(IOrderItem item)
         {
-            items.Add(item);
-            prices.Add(item.Price);
-            subtotal += item.Price;
+            OrderObj.Add(item);
 
             Items.Text += (item.ToString() + '\n');
             Prices.Text += (item.Price.ToString("C2") + '\n');
 
-            Subtotal.Text = subtotal.ToString("C2");
-            Tax.Text = (subtotal * (salestaxrate/100)).ToString("C2");
-            GrandTotal.Text = (subtotal * ((salestaxrate / 100) + 1)).ToString("C2");
+            Subtotal.Text = OrderObj.Subtotal.ToString("C2");
+            Tax.Text = OrderObj.Tax.ToString("C2");
+            GrandTotal.Text = OrderObj.Total.ToString("C2");
         }
     }
 }

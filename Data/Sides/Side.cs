@@ -19,17 +19,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The side's size
         /// </summary>
-        public virtual Size Size
-        {
-            get => size;
-            set
-            {
-                if(value != size)
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                size = value;
-            }
-        }
-        private Size size = Size.Small;
+        public abstract Size Size { get; set; }
 
         /// <summary>
         /// The side's price

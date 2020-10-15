@@ -54,8 +54,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => sirloin;
             set
             {
-                if(value != sirloin)
+                if (value != sirloin)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 sirloin = value;
             }
         }
@@ -69,8 +72,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => onion;
             set
             {
-                if(onion != value)
+                if (onion != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 onion = value;
             }
         }
@@ -85,8 +91,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => roll;
             set
             {
-                if(roll != value)
+                if (roll != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 roll = value;
             }
         }

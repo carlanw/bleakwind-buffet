@@ -65,7 +65,10 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (bun != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 bun = value;
             }
         }
@@ -80,7 +83,10 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (ketchup != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 ketchup = value;
             }
         }
@@ -95,7 +101,10 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (value != mustard)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 mustard = value;
             }
         }
@@ -110,6 +119,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (value != pickle)
+                { }
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
                 pickle = value;
             }
@@ -140,7 +150,10 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (tomato != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 tomato = value;
             }
         }
@@ -154,9 +167,10 @@ namespace BleakwindBuffet.Data.Entrees
             get => lettuce;
             set
             {
-                if (tomato != value)
+                if (lettuce != value)
                 {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 lettuce = value;
             }
@@ -172,7 +186,10 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 if (mayo != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 mayo = value;
             }
         }
@@ -186,8 +203,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => bacon;
             set
             {
-                if(bacon != value)
+                if (bacon != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 bacon = value;
             }
         }
@@ -201,8 +221,11 @@ namespace BleakwindBuffet.Data.Entrees
             get => egg;
             set
             {
-                if(egg != value)
+                if (egg != value)
+                {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 egg = value;
             }
         }
