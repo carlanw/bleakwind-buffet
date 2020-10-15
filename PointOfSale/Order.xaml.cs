@@ -67,6 +67,12 @@ namespace PointOfSale
             Items.Text += (item.ToString() + '\n');
             Prices.Text += (item.Price.ToString("C2") + '\n');
 
+            foreach(string s in item.SpecialInstructions)
+            {
+                Items.Text += (" - " + s + '\n');
+                Prices.Text += '\n';
+            }
+
             Subtotal.Text = OrderObj.Subtotal.ToString("C2");
             Tax.Text = OrderObj.Tax.ToString("C2");
             GrandTotal.Text = OrderObj.Total.ToString("C2");
