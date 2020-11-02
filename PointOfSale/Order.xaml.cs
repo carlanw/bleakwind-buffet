@@ -21,20 +21,10 @@ namespace PointOfSale
     /// </summary>
     public partial class Order : UserControl
     {
-        /// <summary>
-        /// Object to represent the order items
-        /// </summary>
-        public BleakwindBuffet.Data.Order OrderObj = new BleakwindBuffet.Data.Order();
-
-        /// <summary>
-        /// List of items in the order
-        /// </summary>
-        private List<IOrderItem> items = new List<IOrderItem>();
-        private List<double> prices = new List<double>();
-
         public Order()
         {
             InitializeComponent();
+            this.DataContext = new BleakwindBuffet.Data.Order();
         }
 
         /// <summary>
@@ -44,16 +34,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void NextOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderObj = new BleakwindBuffet.Data.Order();
-
-            OrderNumber.Text = OrderObj.Number.ToString();
-
-            Items.Text = "";
-            Prices.Text = "";
-
-            Subtotal.Text = "$0.00";
-            Tax.Text = "$0.00";
-            GrandTotal.Text = "$0.00";
+            DataContext = new BleakwindBuffet.Data.Order();
         }
 
         /// <summary>
@@ -62,20 +43,10 @@ namespace PointOfSale
         /// <param name="item">Item to be added to order</param>
         public void AddItem(IOrderItem item)
         {
-            OrderObj.Add(item);
-
-            Items.Text += (item.ToString() + '\n');
-            Prices.Text += (item.Price.ToString("C2") + '\n');
-
-            foreach(string s in item.SpecialInstructions)
+            if(DataContext is BleakwindBuffet.Data.Order orderObj)
             {
-                Items.Text += (" - " + s + '\n');
-                Prices.Text += '\n';
+                orderObj.Add(item);
             }
-
-            Subtotal.Text = OrderObj.Subtotal.ToString("C2");
-            Tax.Text = OrderObj.Tax.ToString("C2");
-            GrandTotal.Text = OrderObj.Total.ToString("C2");
         }
     }
 }

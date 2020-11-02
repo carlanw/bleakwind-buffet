@@ -45,7 +45,7 @@ namespace BleakwindBuffet.Data
         {
             item.PropertyChanged += CheckIfOrderItemChanged;
             base.Add(item);
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, this.Count-1));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
@@ -108,19 +108,19 @@ namespace BleakwindBuffet.Data
                 double sum = 0;
                 foreach(IOrderItem item in this)
                     sum += item.Price;
-                return sum;
+                return Math.Round(sum, 2);
             }
         }
 
         /// <summary>
         /// Sales tax bsed on subtotal
         /// </summary>
-        public double Tax => Subtotal * SalesTaxRate;
+        public double Tax => Math.Round(Subtotal * SalesTaxRate, 2);
 
         /// <summary>
         /// Grand total price, sum of subtotal and tax
         /// </summary>
-        public double Total => Subtotal + Tax;
+        public double Total => Math.Round(Subtotal + Tax, 2);
 
         /// <summary>
         /// Total calorie count of the order

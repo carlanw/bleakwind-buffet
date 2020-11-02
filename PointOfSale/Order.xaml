@@ -15,7 +15,7 @@
             <TextBlock TextBlock.TextAlignment="Left" TextBlock.FontWeight="Bold" TextBlock.FontSize="16" Grid.Column="0">
                 Order Number:
             </TextBlock>
-            <TextBlock Name="OrderNumber" TextBlock.TextAlignment="Right" TextBlock.FontWeight="Bold" TextBlock.FontSize="16" Grid.Column="1">1</TextBlock>
+            <TextBlock Name="OrderNumber" Text="{Binding Path=Number}" TextBlock.TextAlignment="Right" TextBlock.FontWeight="Bold" TextBlock.FontSize="16" Grid.Column="1"/>
         </Grid>
         <Button Name="NextOrderButton" DockPanel.Dock="Bottom" TextBlock.FontWeight="Bold" TextBlock.FontSize="16" Click="NextOrderButton_Click">
             Next Order
@@ -39,23 +39,28 @@
             <TextBlock TextBlock.TextAlignment="left" TextBlock.FontSize="14" Grid.Row="2" Grid.Column="0">
                 Grand Total:
             </TextBlock>
-            <TextBlock Name="Subtotal" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="0" Grid.Column="1">
-                $0.00
-            </TextBlock>
-            <TextBlock Name="Tax" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="1" Grid.Column="1">
-                $0.00
-            </TextBlock>
-            <TextBlock Name="GrandTotal" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="2" Grid.Column="1">
-                $0.00
-            </TextBlock>
+            <TextBlock Name="Subtotal" Text="{Binding Path=Subtotal}" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Name="Tax" Text="{Binding Path=Tax}" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Name="GrandTotal" Text="{Binding Path=Total}" TextBlock.TextAlignment="right" TextBlock.FontSize="14" Grid.Row="2" Grid.Column="1"/>
         </Grid>
-        <Grid Name="OrderList" DockPanel.Dock="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Name="Items" Grid.Column="0"/>
-            <TextBlock Name="Prices" Grid.Column="1" HorizontalAlignment="Right"/>
-        </Grid>
+        <ListView ItemsSource="{Binding}" DockPanel.Dock="Top">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding}" Grid.Row="0" Grid.Column="0" TextAlignment="Left"/>
+                        <ListView ItemsSource="{Binding Path=SpecialInstructions}" Grid.Row="1" Grid.Column="0" TextBlock.TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Path=Price}" Grid.Row="0" Grid.Column="1" TextAlignment="Right"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </DockPanel>
 </UserControl>

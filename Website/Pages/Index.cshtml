@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@using BleakwindBuffet.Data
+
+<div class="text-center">
+    <h1 class="display-4">Bleakwind Buffet</h1>
+    <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals 
+    straight from the world of Skyrim. Shake the blood off your sword and sake your thirst 
+    with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. 
+    Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, 
+    so spend it with us!.</p>
+</div>
+
+<h2>Entrees</h2>
+<ul>
+    @foreach(IOrderItem e in Model.Entrees)
+    {
+        <li>
+            <div class="menu-item">
+                <h3 class="Name">@e.ToString()</h3>
+                <div class="Price">@e.Price.ToString("C2")</div>
+                <div class="Calories">@e.Calories Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Sides</h2>
+<ul>
+    @foreach (IOrderItem s in Model.Sides)
+    {
+        <li>
+            <div class="menu-item">
+                <h3 class="Name">@s.ToString()</h3>
+                <div class="Price">@s.Price.ToString("C2")</div>
+                <div class="Calories">@s.Calories Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Drinks</h2>
+<ul>
+    @foreach (IOrderItem d in Model.Drinks)
+    {
+        <li>
+            <div class="menu-item">
+                <h3 class="Name">@d.ToString()</h3>
+                <div class="Price">@d.Price.ToString("C2")</div>
+                <div class="Calories">@d.Calories Calories</div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Combo</h2>
+<p>Any entree, side, and drink can be included in a Combo for a $1 discount</p>
