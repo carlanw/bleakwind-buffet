@@ -14,8 +14,8 @@ namespace Website.Pages
     public class IndexModel : PageModel
     {
         public IEnumerable<IOrderItem> Entrees => Menu.Entrees();
-        public IEnumerable<IOrderItem> Drinks => Menu.Drinks();
-        public IEnumerable<IOrderItem> Sides => Menu.Sides();
+        public IEnumerable<IOrderItem> Drinks => Menu.DrinksShort();
+        public IEnumerable<IOrderItem> Sides => Menu.SidesShort();
 
         private readonly ILogger<IndexModel> _logger;
 
