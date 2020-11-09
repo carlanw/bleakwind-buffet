@@ -7,6 +7,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using BleakwindBuffet.Data.Drinks;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
@@ -138,6 +139,66 @@ namespace BleakwindBuffet.Data
             list.AddRange(Menu.Entrees());
             list.AddRange(Menu.Sides());
             list.AddRange(Menu.Drinks());
+            return list;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] types)
+        {
+            List<IOrderItem> list = new List<IOrderItem>();
+
+            if (types is null || types.Count() == 0)
+                return items;
+                    
+            foreach(IOrderItem i in items)
+            {
+                if (types.Contains("Entree") && i is Entree)
+                    list.Add(i);
+                if (types.Contains("Side") && i is Side)
+                    list.Add(i);
+                if (types.Contains("Drink") && i is Drink)
+                    list.Add(i);
+            }
+
+            return list;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            List<IOrderItem> list = new List<IOrderItem>();
+
+            if (min is null && max is null)
+                return items;
+            else if ((min is null && max != null))
+                min = 0;
+            else if ((min != null && max == null))
+                max = 10;
+
+            foreach (IOrderItem i in items)
+            {
+                if (i.Price >= min && i.Price <= max)
+                    list.Add(i);
+            }
+
+            return list;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            List<IOrderItem> list = new List<IOrderItem>();
+
+            if (min is null && max is null)
+                return items;
+            else if ((min is null && max != null))
+                min = 0;
+            else if ((min != null && max == null))
+                max = 1000;
+
+            foreach (IOrderItem i in items)
+            {
+                if (i.Calories >= min && i.Calories <= max)
+                    list.Add(i);
+            }
+
             return list;
         }
     }

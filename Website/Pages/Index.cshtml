@@ -4,20 +4,60 @@
     ViewData["Title"] = "Home page";
 }
 @using BleakwindBuffet.Data;
-@using BleakwindBuffet.Data.Enums; 
+@using BleakwindBuffet.Data.Enums;
 
 <div class="text-center">
     <h1 class="display-4">Bleakwind Buffet</h1>
-    <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals 
-    straight from the world of Skyrim. Shake the blood off your sword and sake your thirst 
-    with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. 
-    Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, 
-    so spend it with us!</p>
+    <p>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals
+        straight from the world of Skyrim. Shake the blood off your sword and sake your thirst
+        with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger.
+        Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot,
+        so spend it with us!
+    </p>
 </div>
 
-<h2>Entrees</h2>
+<form>
+    <label>
+        <input type="checkbox" name="Types" value="Entree"
+               checked="@Model.Types.Contains("Entree")" />
+        Entree
+    </label>
+    <label>
+        <input type="checkbox" name="Types" value="Side"
+               checked="@Model.Types.Contains("Side")" />
+        Side
+    </label>
+    <label>
+        <input type="checkbox" name="Types" value="Drink"
+               checked="@Model.Types.Contains("Drink")" />
+        Drink
+    </label>
+
+    <br />
+
+    <label>
+        Price Range:
+        <input name="PriceMin" type="number" min="0" max="10" step="0.01" value="@Model.PriceMin" />
+        <input name="PriceMax" type="number" min="0" max="10" step="0.01" value="@Model.PriceMax" />
+    </label>
+
+    <br />
+
+    <label>
+        Calorie Range:
+        <input name="CalorieMin" type="number" min="0" max="1000" step="1" value="@Model.CalorieMin" />
+        <input name="CalorieMax" type="number" min="0" max="1000" step="1" value="@Model.CalorieMax" />
+    </label>
+
+    <br />
+
+    <input type="submit" value="Search" />
+</form>
+
+<h2>Search Results</h2>
 <ul>
-    @foreach(IOrderItem i in Model.Entrees)
+    @foreach (IOrderItem i in Model.SearchResults)
     {
         <li>
             <div class="menu-item">
@@ -28,57 +68,18 @@
     }
 </ul>
 
-<h2>Sides</h2>
-<ul>
-    @foreach (IOrderItem i in Model.Sides)
-    {
-        BleakwindBuffet.Data.Sides.Side s = i as BleakwindBuffet.Data.Sides.Side;
-        <li>
-            <div class="menu-item">
-                <h3 class="Name">@s.ToString().Substring(6)</h3>
-                <ul>
-                    <li>Small: @s.Price.ToString("C2"), @s.Calories Calories</li>
-                    @{s.Size = Size.Medium;}
-                    <li>Medium: @s.Price.ToString("C2"), @s.Calories Calories</li>
-                    @{s.Size = Size.Large;}
-                    <li>Large: @s.Price.ToString("C2"), @s.Calories Calories</li>
-                </ul>
-            </div>
-        </li>
-    }
-</ul>
+@if (Model.Types.Count() == 3)
+{
+    <h2>Combo</h2>
+    <p>Any entree, side, and drink can be included in a Combo for a $1 discount</p>
+}
 
-<h2>Drinks</h2>
-<ul>
-    @foreach (IOrderItem i in Model.Drinks)
-    {
-        BleakwindBuffet.Data.Drinks.Drink d = i as BleakwindBuffet.Data.Drinks.Drink;
-        <li>
-            <div class="menu-item">
-                @{ if (d is BleakwindBuffet.Data.Drinks.SailorSoda)
-                    { <h3 class="Name">Sailor Soda</h3> }
-                    else
-                    { <h3 class="Name">@d.ToString().Substring(6)</h3> }
-                }
-                <ul>
-                    <li>Small: @d.Price.ToString("C2"), @d.Calories Calories</li>
-                    @{d.Size = Size.Medium;}
-                    <li>Medium: @d.Price.ToString("C2"), @d.Calories Calories</li>
-                    @{d.Size = Size.Large;}
-                    <li>Large: @d.Price.ToString("C2"), @d.Calories Calories</li>
-                </ul>
-            </div>
-        </li>
-    }
-</ul>
-
-<h2>Combo</h2>
-<p>Any entree, side, and drink can be included in a Combo for a $1 discount</p>
-
+<!---
 <h2>Soda Flavors</h2>
 <ul>
-    @foreach(SodaFlavor f in Enum.GetValues(typeof(SodaFlavor)))
+    @foreach (SodaFlavor f in Enum.GetValues(typeof(SodaFlavor)))
     {
         <li>@f.ToString()</li>
     }
 </ul>
+-->
