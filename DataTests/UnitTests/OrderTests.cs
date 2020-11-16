@@ -71,8 +71,8 @@ namespace BleakwindBuffet.DataTests.UnitTests
                 new SailorSoda()
             };
             Assert.Equal(8.16, o.Subtotal);
-            Assert.Equal(0.9792, o.Tax);
-            Assert.Equal(9.1392, o.Total);
+            Assert.Equal(0.98, o.Tax);
+            Assert.Equal(9.14, o.Total);
         }
 
         [Fact]

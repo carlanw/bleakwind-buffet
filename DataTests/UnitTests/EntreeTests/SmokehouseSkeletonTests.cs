@@ -141,5 +141,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton combo = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", combo.ToString());
         }
+
+        [Fact]
+        public void HasDescription()
+        {
+            SmokehouseSkeleton combo = new SmokehouseSkeleton();
+            Assert.Equal("Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.", combo.Description);
+        }
     }
 }

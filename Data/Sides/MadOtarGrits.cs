@@ -103,5 +103,10 @@ namespace BleakwindBuffet.Data.Sides
         {
             return this.Size + " Mad Otar Grits";
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description => "Cheesy Grits.";
     }
 }

@@ -111,5 +111,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             juice.Size = size;
             Assert.Equal(name, juice.ToString());
         }
+
+        [Fact]
+        public void HasDescription()
+        {
+            AretinoAppleJuice juice = new AretinoAppleJuice();
+            Assert.Equal("Fresh squeezed apple juice.", juice.Description);
+        }
     }
 }

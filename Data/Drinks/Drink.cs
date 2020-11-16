@@ -38,5 +38,10 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special instuctions for the drink's preparation
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public abstract string Description { get; }
     }
 }

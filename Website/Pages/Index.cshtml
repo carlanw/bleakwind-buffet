@@ -18,6 +18,10 @@
 </div>
 
 <form>
+    <input type="text" name="SearchTerms" value="@Model.SearchTermsRaw" />
+
+    <br/>
+
     <label>
         <input type="checkbox" name="Types" value="Entree"
                checked="@Model.Types.Contains("Entree")" />
@@ -56,23 +60,24 @@
 </form>
 
 <h2>Search Results</h2>
-<ul>
+<div class="menu">
     @foreach (IOrderItem i in Model.SearchResults)
     {
-        <li>
-            <div class="menu-item">
-                <h3 class="Name">@i.ToString()</h3>
-                <div>@i.Price.ToString("C2"), @i.Calories Calories</div>
-            </div>
-        </li>
+        <div class="item">
+            <h3 class="Name">@i.ToString()</h3>
+            <div class="details">@i.Price.ToString("C2"), @i.Calories Calories</div>
+            <div class="description">@i.Description</div>
+        </div>
     }
-</ul>
 
-@if (Model.Types.Count() == 3)
-{
-    <h2>Combo</h2>
-    <p>Any entree, side, and drink can be included in a Combo for a $1 discount</p>
-}
+    @if (Model.Types.Count() == 3 || Model.Types.Count() == 0)
+    {
+        <div class="item">
+            <h3>Combo</h3>
+            <p class="description">Any entree, side, and drink can be included in a Combo for a $1 discount</p>
+        </div>
+    }
+</div>
 
 <!---
 <h2>Soda Flavors</h2>
@@ -83,3 +88,5 @@
     }
 </ul>
 -->
+
+<div class="clearfix" />

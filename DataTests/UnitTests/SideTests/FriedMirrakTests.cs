@@ -90,5 +90,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             side.Size = size;
             Assert.Equal(name, side.ToString());
         }
+
+        [Fact]
+        public void HasDescription()
+        {
+            FriedMiraak side = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", side.Description);
+        }
     }
 }

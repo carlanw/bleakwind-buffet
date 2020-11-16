@@ -150,5 +150,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             coffee.Decaf = decaf;
             Assert.Equal(name, coffee.ToString());
         }
+
+        [Fact]
+        public void HasDescription()
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", coffee.Description);
+        }
     }
 }

@@ -135,5 +135,7 @@ namespace BleakwindBuffet.Data
                 return list;
             }
         }
+
+        public string Description => "Any entree, side, and drink can be added to a combo for a $1 doscount.";
     }
 }
